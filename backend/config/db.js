@@ -1,0 +1,26 @@
+import {neon} from "@neondatabase/serverless"
+
+import "dotenv/config";
+
+//Cria uma conexão usando a url do banco de dados
+export const sql = neon(process.env.DATABASE_URL);
+
+//Inicialização do banco
+export async function initDB() {
+    try {
+        await sql`CREATE TABLE IF NOT EXISTS transacoes(
+            id SERIAL PRIMARY KEY,
+            user_id VARCHAR(255) NOT NULL,
+            title VARCHAR(255) NOT NULL,
+            amount DECIMAL(10,2) NOT NULL,
+            category VARCHAR(255) NOT NULL,
+            created_at DATE NOT NULL DEFAULT CURRENT_DATE
+        )`;
+
+        console.log("Banco conectado com sucesso!");
+
+    } catch (error) {
+        console.log("Erro na inicialização do banco", error)
+        process.exit(1); // status code 1 fracasso na leitura, 0 sucesso
+    }
+}
