@@ -20,9 +20,8 @@ Este repositório contém um projeto full stack em fase de desenvolvimento, com 
 
 ### 📲 Frontend
 - React Native
-<<<<<<< HEAD
 - Expo
-
+  
 =======
 - Expo (Aplicativo para rodar a aplicação) 
 
@@ -31,6 +30,6 @@ npm install
 
 ## Rodar servidor
 npm run dev
->>>>>>> b2519bb (Atualização no front end)
+
 
 
